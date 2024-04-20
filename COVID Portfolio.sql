@@ -123,7 +123,7 @@ AND dea.date = vac.date
 
 --Looking at Total Population vs Vaccination
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations,
-SUM(cast(vac.new_vaccinations as int)) OVER( partition by dea.location order by dea.location, dea.date) as RollingPeopleVaccinated,
+SUM(cast(vac.new_vaccinations as int)) OVER( partition by dea.location order by dea.location, dea.date) as RollingPeopleVaccinated
 FROM CovidDeaths dea
 JOIN CovidDeaths vac
 ON dea.location = vac.location
